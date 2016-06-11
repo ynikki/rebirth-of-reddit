@@ -28,11 +28,19 @@ function updateUI(response){
     title.text(result[i].data.title);
     containDiv.append(title);
 
+    var today = $('<h1 />');
+    // today.text(result[i].data.created_utc).getUTCDate();
+    containDiv.append(today);
+
+    var showText = $('<p />');
+    showText.text(result[i].data.selftext);
+    containDiv.append(showText);
+
     var titleLink = $('<a />');
     titleLink.attr('href',result[i].data.permalink);
     titleLink.text(title);
 
-    var author = $('<a/>');
+    var author = $('<a />');
     author.attr('href',result[i].data.author);
     author.text(result[i].data.author);
 
@@ -43,7 +51,7 @@ function updateUI(response){
     commentLink.attr('href', result[i].data.url);
     commentLink.text('Comments: ' + result[i].data.num_comments);
 
-    var score = $('<span />');
+    var score = $('<span2 />');
     score.text(result[i].data.score);
     postDiv.append(score, " ", author, " ", commentLink);
     console.log(result);
@@ -52,3 +60,7 @@ function updateUI(response){
     return postDiv;
 }
 
+// $(titleLink).click(function (event){
+//   event.preventDefault();
+//   $(this).hide();
+// });
