@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+@import url(https://fonts.googleapis.com/css?family=Advent+Pro);
+
+body{
+  color: #494949;
+  position: absolute;
+  text-align: center;
+  margin: 80px;
+  background-color: #dcfcf7;
+}
+
+h2{
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+}
+
+
+span, a{
+  font-family: 'Advent Pro', sans-serif;
+}
+
+a:link, a:visited{
+  color:#494949;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #878787;
+  font-size: 18px;
+}
