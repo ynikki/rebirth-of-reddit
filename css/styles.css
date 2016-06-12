@@ -5,21 +5,28 @@ body {
   color: #3a3a3a;
   margin: 80px;
   background: #c9eded; }
-  body .containDiv {
-    background: #eef2f1;
-    padding: 15px; }
-  body a {
-    color: #4c4c4c;
-    text-decoration: none; }
-  body a:visited {
-    color: #4c4c4c;
-    text-decoration: none; }
-  body a:hover {
-    color: #a4acac;
-    font: 25px; }
-  body h2 {
-    font: 30px "Oleo Script", cursive;
-    margin: 5px; }
-  body h3 {
-    font: 20px;
-    margin: 2px; }
+
+.containDiv {
+  background: #eef2f1;
+  padding: 15px;
+  box-shadow: 3px 3px 6px -3px #494949; }
+
+a {
+  color: #4c4c4c;
+  text-decoration: none; }
+
+a:visited {
+  color: #4c4c4c;
+  text-decoration: none; }
+
+a:hover {
+  color: #a4acac;
+  font: 25px; }
+
+h2 {
+  font: 30px "Oleo Script", cursive;
+  margin: 5px; }
+
+h3 {
+  font: 20px;
+  margin: 2px; }

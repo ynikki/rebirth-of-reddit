@@ -52,13 +52,17 @@ function updateUI(response){
     postDiv.append(commentPara);
 
     var commentLink = $('<a />');
-    commentLink.attr('href', 'https://www.reddit.com/r/halloween/comments/' + result[i].data.url);
+    var url = result[i].data.url;
+    commentLink.attr('href',url);
     commentLink.text('Comments: ' + result[i].data.num_comments);
 
     var score = $('<span />');
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
     console.log(result);
+
+    var imgLink = $('<img />');
+    imgLink.append(result[i].data.thumbnail);
   }
 
     return postDiv;
