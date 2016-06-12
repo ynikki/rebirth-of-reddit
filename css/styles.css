@@ -1,5 +1,19 @@
-ul li {
-  color: #ff80ff; }
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+h2 {
+  font: 30px "Lobster", cursive; }
 
-ul a:hover {
-  color: #010001; }
+body {
+  font: 20px "Open Sans Condensed", sans-serif;
+  color: #3a3a3a;
+  margin: 80px;
+  background: #c9eded; }
+  body a {
+    color: #4c4c4c;
+    text-decoration: none; }
+  body a:visited {
+    color: #4c4c4c;
+    text-decoration: none; }
+  body a:hover {
+    color: #a4acac;
+    font: 25px; }

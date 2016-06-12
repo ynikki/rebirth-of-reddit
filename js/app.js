@@ -1,5 +1,3 @@
-console.log('bleh');
-
 $.ajax({
   method: 'GET',
   url: 'https://www.reddit.com/r/javascript.json',
@@ -30,9 +28,10 @@ function updateUI(response){
     title.text(result[i].data.title);
     containDiv.append(title);
 
-    var today = $('<h1 />');
-    // today.text(result[i].data.created_utc).getUTCDate();
-    containDiv.append(today);
+    var today = $('<h3 />');
+    var showDate = new Date(result[i].data.created_utc * 1000);
+    today.text(showDate);
+    containDiv.append(today);    
 
     var showText = $('<p />');
     showText.text(result[i].data.selftext);
