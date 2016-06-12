@@ -1,18 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
-$font-stack: 'Lobster', cursive;
+$font-stack: 'Oleo Script', cursive;;
 $font: 'Open Sans Condensed', sans-serif;;
-$mainColor: salmon;
-
-h2{
-  font:30px $font-stack;
-}
 
 body{
-  font: 20px $font;
+  font: 15px $font;
   color: #3a3a3a;
   margin: 80px;
   background: #c9eded;
+
+  .containDiv{
+    background: #eef2f1;
+    padding: 15px;
+  }
   a{
     color: #4c4c4c;
     text-decoration: none;
@@ -24,6 +24,14 @@ body{
   a:hover{
     color: #a4acac;
     font: 25px;
+  }
+  h2{
+    font:30px $font-stack;
+    margin: 5px;
+  }
+  h3{
+    font: 20px;
+    margin: 2px;
   }
 }
 

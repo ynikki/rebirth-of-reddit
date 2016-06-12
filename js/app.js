@@ -1,6 +1,8 @@
+var username;
+
 $.ajax({
   method: 'GET',
-  url: 'https://www.reddit.com/r/javascript.json',
+  url: 'https://www.reddit.com/r/halloween.json',
   dataType: 'json'
 })
 .done(function(data) {
@@ -24,37 +26,38 @@ function updateUI(response){
     var containDiv = $('<div />').addClass("containDiv");
     postDiv.append(containDiv);
 
+    var titleLink = $('<a />');
+    titleLink.attr('href', result[i].data.url);
+    titleLink.text(result[i].data.title);
+    
     var title = $('<h2 />');
     title.text(result[i].data.title);
     containDiv.append(title);
-
+    
     var today = $('<h3 />');
     var showDate = new Date(result[i].data.created_utc * 1000);
     today.text(showDate);
     containDiv.append(today);    
 
     var showText = $('<p />');
-    showText.text(result[i].data.selftext);
+    showText.html(marked(result[i].data.selftext));
     containDiv.append(showText);
 
-    var titleLink = $('<a />');
-    titleLink.attr('href',result[i].data.permalink);
-    titleLink.text(title);
-
-    var author = $('<a />');
-    author.attr('href',result[i].data.author);
-    author.text(result[i].data.author);
+    var author = $('<a />').addClass("author");
+    username = result[i].data.author;
+    author.attr('href', 'https://www.reddit.com/user/' + username);
+    author.text(username);
 
     var commentPara = $('<p />');
     postDiv.append(commentPara);
 
     var commentLink = $('<a />');
-    commentLink.attr('href', result[i].data.url);
+    commentLink.attr('href', 'https://www.reddit.com/r/halloween/comments/' + result[i].data.url);
     commentLink.text('Comments: ' + result[i].data.num_comments);
 
-    var score = $('<span2 />');
+    var score = $('<span />');
     score.text(result[i].data.score);
-    postDiv.append(score, " ", author, " ", commentLink);
+    containDiv.append(score, " ", author, " ", commentLink);
     console.log(result);
   }
 
