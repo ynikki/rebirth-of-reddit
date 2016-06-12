@@ -8,10 +8,11 @@ gulp.task('styles', function (){
   .pipe(gulp.dest('css'));
 });
 
-gulp.task('watch', function (){
+gulp.task('watch', ['styles'], function (){
   gulp.watch('js/app.js', function (){
     console.log('The file changed.');
   });
+  gulp.watch('scss/**/*', ['styles']);
 });
 
 gulp.task('default', function (){
@@ -19,3 +20,4 @@ gulp.task('default', function (){
   console.log('hello again');
 });
 
+gulp.task('default',['styles']);
