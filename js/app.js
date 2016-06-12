@@ -1,3 +1,5 @@
+console.log('bleh');
+
 $.ajax({
   method: 'GET',
   url: 'https://www.reddit.com/r/javascript.json',
