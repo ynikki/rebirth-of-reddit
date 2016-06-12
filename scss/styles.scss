@@ -1,0 +1,12 @@
+
+
+$mainColor: green;
+
+ul{
+  li {
+    color: lighten($mainColor, 50%);
+  }
+  a:hover{
+  color: darken($mainColor, 25%);
+  }
+}
