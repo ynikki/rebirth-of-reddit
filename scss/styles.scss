@@ -3,7 +3,7 @@
 $font-stack: 'Oleo Script', cursive;;
 $font: 'Open Sans Condensed', sans-serif;;
 
-$phone: "(max-width:1242px) and (min-width: 640)";
+$phone: "(max-width:1242px) and (min-width: 320)";
 $tablet: "(min-width: 1024px) and (max-width: 2048px)";
 $surface: "(max-width: 1440px)";
 
@@ -17,7 +17,7 @@ body{
     background: #eef2f1;
     padding: 15px;
     margin: 40px;
-    box-shadow: 3px 3px 6px -3px #494949;
+    box-shadow: 3px 3px 6px -3px #d8d8d8;
   }
 
   .title {
