@@ -60,18 +60,18 @@ function updateUI(response){
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
 
-    var imgLink = $('<img />');
-    thumbnail = result[i].data.thumbnail;
-    if(thumbnail === 'self'){
-      thumbnail.url('images/halloweenghost.png');
-    }
-    thumbnail = null;
-    if(result[i].data.hasOwnProperty('preview')){
-      thumbnail = result[i].data.preview.images;
-    }else{
-      thumbnail.url('images/halloweenghost.png');
-    }
-    imgLink.append(thumbnail);
+    // var imgLink = $('<img />');
+    // thumbnail = result[i].data.thumbnail;
+    // if(thumbnail === 'self'){
+    //   thumbnail.attr('src','images/halloweenghost.png');
+    // }
+    // thumbnail = null;
+    // if(result[i].data.hasOwnProperty('preview')){
+    //   thumbnail = result[i].data.preview[0].images.url;
+    // }else{
+    //   thumbnail.attr('src','images/halloweenghost.png');
+    // }
+    // containDiv.append(imgLink);
   }
 
     return postDiv;
