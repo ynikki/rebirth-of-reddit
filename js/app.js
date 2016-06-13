@@ -26,13 +26,16 @@ function updateUI(response){
     var containDiv = $('<div />').addClass("containDiv");
     postDiv.append(containDiv);
 
+    var containHeader = $('<div />').addClass("containHeader");
+    containDiv.append(containHeader);
+
     var titleLink = $('<a />');
     titleLink.attr('href', result[i].data.url);
     titleLink.text(result[i].data.title);
     
-    var title = $('<h2 />');
+    var title = $('<h2 />').addClass('title');
     title.text(result[i].data.title);
-    containDiv.append(title);
+    containHeader.append(title);
     
     var today = $('<h3 />');
     var showDate = new Date(result[i].data.created_utc * 1000);
@@ -48,9 +51,6 @@ function updateUI(response){
     author.attr('href', 'https://www.reddit.com/user/' + username);
     author.text(username);
 
-    var commentPara = $('<p />');
-    postDiv.append(commentPara);
-
     var commentLink = $('<a />');
     var url = result[i].data.url;
     commentLink.attr('href',url);
@@ -59,10 +59,19 @@ function updateUI(response){
     var score = $('<span />');
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
-    console.log(result);
 
     var imgLink = $('<img />');
-    imgLink.append(result[i].data.thumbnail);
+    thumbnail = result[i].data.thumbnail;
+    if(thumbnail === 'self'){
+      thumbnail.url('images/halloweenghost.png');
+    }
+    thumbnail = null;
+    if(result[i].data.hasOwnProperty('preview')){
+      thumbnail = result[i].data.preview.images;
+    }else{
+      thumbnail.url('images/halloweenghost.png');
+    }
+    imgLink.append(thumbnail);
   }
 
     return postDiv;

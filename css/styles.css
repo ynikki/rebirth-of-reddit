@@ -3,13 +3,34 @@
 body {
   font: 15px "Open Sans Condensed", sans-serif;
   color: #3a3a3a;
-  margin: 80px;
-  background: #c9eded; }
+  background: #2a2a2a; }
 
 .containDiv {
   background: #eef2f1;
   padding: 15px;
+  margin: 40px;
   box-shadow: 3px 3px 6px -3px #494949; }
+
+.title {
+  font: 30px "Oleo Script", cursive;
+  border-radius: 20px;
+  background: #f58206;
+  position: relative;
+  padding: 15px; }
+
+.title:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(175, 199, 213, 0);
+  border-top-color: #f58206;
+  border-width: 13px;
+  margin-left: -13px; }
 
 a {
   color: #4c4c4c;
@@ -22,10 +43,6 @@ a:visited {
 a:hover {
   color: #a4acac;
   font: 25px; }
-
-h2 {
-  font: 30px "Oleo Script", cursive;
-  margin: 5px; }
 
 h3 {
   font: 20px;
