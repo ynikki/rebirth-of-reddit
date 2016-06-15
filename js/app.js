@@ -79,20 +79,17 @@ function updateUI(response){
 
     var image = $('<img />');
     image.attr('src','/images/halloweenghost.png');
-    // containDiv.append(image);
 
-    var imgLink = $('<img />');
-    thumbnail = result[i].data.thumbnail;
-    if(thumbnail === 'self'){
-      thumbnail = containDiv.append(image);
-    }
-    thumbnail = null;
-    if(result[i].data.thumbnail){
-      thumbnail = result[i].data.thumbnail;
+    var thumbnail = null;
+    if (result[i].data.hasOwnProperty('preview')){
+      currThumbnail = $('<img />');
+      thumbnail = result[i].data.preview.images[0].source.url;
+      currThumbnail.attr('src', thumbnail);
+      containDiv.append(currThumbnail);
     }else{
       thumbnail = containDiv.append(image);
     }
-    containDiv.append(imgLink);
+
   }
 
     return postDiv;
