@@ -77,16 +77,20 @@ function updateUI(response){
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
 
+    var image = $('<img />');
+    image.attr('src','/images/halloweenghost.png');
+    // containDiv.append(image);
+
     var imgLink = $('<img />');
     thumbnail = result[i].data.thumbnail;
     if(thumbnail === 'self'){
-      thumbnail = thumbnail.src('/images/halloweenghost.png');
+      thumbnail = containDiv.append(image);
     }
     thumbnail = null;
     if(result[i].data.thumbnail){
-      thumbnail = result[i].data.preview[0].images.url;
+      thumbnail = result[i].data.thumbnail;
     }else{
-      thumbnail = thumbnail.src('/images/halloweenghost.png');
+      thumbnail = containDiv.append(image);
     }
     containDiv.append(imgLink);
   }
