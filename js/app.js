@@ -17,17 +17,31 @@ $.ajax({
   //Always update the UI with status
 });
 
+function collapsiblePara(para){
+  $('.containPara').collapse({
+    show: function(){
+      this.slideDown(100);
+    },
+    hide: function(){
+      this.slideUp(100);
+    },
+    accordion: true,
+    persist: true,
+  });
+}
+
 function updateUI(response){
   var postDiv = $('<div />');
   $('body').append(postDiv);
   
   var result = response.data.children;
   for(var i=0; i<result.length; i++){
+    var containHeader = $('<div />').addClass("containHeader");
+    postDiv.append(containHeader);
+
     var containDiv = $('<div />').addClass("containDiv");
     postDiv.append(containDiv);
 
-    var containHeader = $('<div />').addClass("containHeader");
-    containDiv.append(containHeader);
 
     var titleLink = $('<a />');
     titleLink.attr('href', result[i].data.url);
@@ -42,9 +56,12 @@ function updateUI(response){
     today.text(showDate);
     containDiv.append(today);    
 
+    var containPara = $('<div />').addClass("containPara");
+    containDiv.append(containPara);
+
     var showText = $('<p />');
     showText.html(marked(result[i].data.selftext));
-    containDiv.append(showText);
+    containPara.append(showText);
 
     var author = $('<a />').addClass("author");
     username = result[i].data.author;
@@ -56,22 +73,22 @@ function updateUI(response){
     commentLink.attr('href',url);
     commentLink.text('Comments: ' + result[i].data.num_comments);
 
-    var score = $('<span />');
+    var score = $('<span />').addClass(score);
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
 
-    // var imgLink = $('<img />');
-    // thumbnail = result[i].data.thumbnail;
-    // if(thumbnail === 'self'){
-    //   thumbnail.attr('src','images/halloweenghost.png');
-    // }
-    // thumbnail = null;
-    // if(result[i].data.hasOwnProperty('preview')){
-    //   thumbnail = result[i].data.preview[0].images.url;
-    // }else{
-    //   thumbnail.attr('src','images/halloweenghost.png');
-    // }
-    // containDiv.append(imgLink);
+    var imgLink = $('<img />');
+    thumbnail = result[i].data.thumbnail;
+    if(thumbnail === 'self'){
+      thumbnail = thumbnail.src('/images/halloweenghost.png');
+    }
+    thumbnail = null;
+    if(result[i].data.thumbnail){
+      thumbnail = result[i].data.preview[0].images.url;
+    }else{
+      thumbnail = thumbnail.src('/images/halloweenghost.png');
+    }
+    containDiv.append(imgLink);
   }
 
     return postDiv;
