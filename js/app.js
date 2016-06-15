@@ -83,7 +83,8 @@ function updateUI(response){
     var thumbnail = null;
     if (result[i].data.hasOwnProperty('preview')){
       currThumbnail = $('<img />');
-      thumbnail = result[i].data.preview.images[0].source.url;
+      //thumbnail = result[i].data.preview.images[0].source.url;
+      thumbnail = result[i].data.thumbnail;
       currThumbnail.attr('src', thumbnail);
       containDiv.append(currThumbnail);
     }else{
