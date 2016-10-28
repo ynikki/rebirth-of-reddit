@@ -51,13 +51,13 @@ function updateUI(response){
     title.text(result[i].data.title);
     containHeader.append(title);
     
-    var today = $('<h3 />');
+    var today = $('<h3 />').addClass('date');
     var showDate = new Date(result[i].data.created_utc * 1000);
     today.text(showDate);
     containDiv.append(today);    
 
     var containPara = $('<div />').addClass("containPara");
-    containDiv.append(containPara);
+    $('.accordion').append(containPara);
 
     var showText = $('<p />');
     showText.html(marked(result[i].data.selftext));
@@ -69,28 +69,27 @@ function updateUI(response){
     author.text(username);
 
     var commentLink = $('<a />');
-    var url = result[i].data.url;
-    commentLink.attr('href',url);
+    var url = result[i].data.permalink;
+    commentLink.attr('href','https://www.reddit.com' + url);
     commentLink.text('Comments: ' + result[i].data.num_comments);
 
     var score = $('<span />').addClass(score);
     score.text(result[i].data.score);
     containDiv.append(score, " ", author, " ", commentLink);
 
-    var image = $('<img />');
+    var image = $('<img />').addClass("img");
     image.attr('src','/images/halloweenghost.png');
 
     var thumbnail = null;
     if (result[i].data.hasOwnProperty('preview')){
-      currThumbnail = $('<img />');
-      //thumbnail = result[i].data.preview.images[0].source.url;
+      currThumbnail = $('<img />').addClass("thumbnail");
       thumbnail = result[i].data.thumbnail;
+      var thumbnailLink = result[i].data.url;
       currThumbnail.attr('src', thumbnail);
       containDiv.append(currThumbnail);
     }else{
       thumbnail = containDiv.append(image);
     }
-
   }
 
     return postDiv;
